@@ -3,17 +3,33 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Data → Shorts — 99% Auto</title>
+<title>ClipFlow — Data → Shorts viraux</title>
+<meta name="description" content="Transforme ta niche en clips TikTok / Reels / Shorts prêts à publier. Démo gratuite, offres à partir de 290€." />
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<header>
-  <h1>🎬 Data → Shorts <span>99% Auto</span></h1>
-  <p>Colle ta niche, génère 6 idées de clips prêtes pour TikTok / Reels / Shorts + fichier OpenShorts.</p>
+<nav>
+  <div class="logo">⚡ ClipFlow</div>
+  <div class="nav-links">
+    <a href="#demo">Démo</a>
+    <a href="#pricing">Tarifs</a>
+    <a href="#contact" class="btn-small">Commander</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="badge">99% automatisé • TikTok / Reels / Shorts</div>
+  <h1>Ta niche → des clips qui vendent.</h1>
+  <p>Teste gratuitement ci-dessous. Si tu veux qu'on le fasse pour toi, commande en 1 clic.</p>
+  <div class="hero-cta">
+    <a href="#demo" class="btn-primary">Tester la démo ↓</a>
+    <a href="#pricing" class="btn-ghost">Voir les tarifs</a>
+  </div>
 </header>
 
 <main>
-  <section class="card">
+  <section class="card" id="demo">
+    <h2>⚡ Générateur démo</h2>
     <label for="query">Ta niche / recherche</label>
     <div class="row">
       <input id="query" value="IA monétisation" placeholder="ex : immobilier, e-commerce, coaching..." />
@@ -35,6 +51,46 @@
 
   <section id="results"></section>
 
+  <section class="card" id="paywall" hidden>
+    <h2>🔒 Démo épuisée — débloque l'illimité</h2>
+    <p class="muted">Tu as utilisé tes <b>3 générations gratuites</b>. Prends un pack pour continuer + recevoir les clips finis.</p>
+    <div class="row">
+      <button data-pay="starter">💳 Starter 290€</button>
+      <button data-pay="growth">💳 Growth 590€/mois</button>
+      <button data-pay="scale">💳 Scale 1490€/mois</button>
+    </div>
+    <small class="muted">Paiement sécurisé Stripe. Sans backend configuré, redirige vers tes Payment Links.</small>
+  </section>
+
+  <section class="card" id="pricing">
+    <h2>💎 Tarifs — on s'occupe de tout</h2>
+    <p class="muted">Tu veux les clips finis, sous-titrés, prêts à poster ? Choisis un pack.</p>
+    <div class="pricing">
+      <div class="price">
+        <h3>Starter</h3>
+        <div class="amount">290€</div>
+        <p>10 clips / 1 vidéo source<br>Sous-titres + hooks<br>Livraison 72h</p>
+        <a class="btn-primary" data-stripe="starter" href="https://pay.stripe.com/REMPLACE_STARTER" target="_blank">💳 Payer Starter</a>
+        <a class="btn-ghost" href="#contact" data-plan="Starter 290€">Devis / Contact</a>
+      </div>
+      <div class="price hot">
+        <div class="flag">Le plus vendu</div>
+        <h3>Growth</h3>
+        <div class="amount">590€<span>/mois</span></div>
+        <p>20 clips / mois<br>Analyse niche + trends<br>2 révisions incluses</p>
+        <a class="btn-primary" data-stripe="growth" href="https://pay.stripe.com/REMPLACE_GROWTH" target="_blank">💳 Payer Growth</a>
+        <a class="btn-ghost" href="#contact" data-plan="Growth 590€/mois">Devis / Contact</a>
+      </div>
+      <div class="price">
+        <h3>Scale</h3>
+        <div class="amount">1 490€<span>/mois</span></div>
+        <p>50 clips / mois<br>Multi-comptes + reporting<br>Prioritaire 24h</p>
+        <a class="btn-primary" data-stripe="scale" href="https://pay.stripe.com/REMPLACE_SCALE" target="_blank">💳 Payer Scale</a>
+        <a class="btn-ghost" href="#contact" data-plan="Scale 1490€/mois">Devis / Contact</a>
+      </div>
+    </div>
+  </section>
+
   <section class="card">
     <h2>💰 Simulateur revenus</h2>
     <div class="row">
@@ -43,22 +99,66 @@
       <button id="calc">Calculer</button>
     </div>
     <p id="revenu" class="big"></p>
-    <small>Repères : audit SEO 800-2500€, pack 10 clips 300-800€/mois, pitch deck 1500-5000€, leads 0.5-2€/unité.</small>
   </section>
 
-  <section class="card">
-    <h2>🚀 Déployer sur Vercel</h2>
-    <ol>
-      <li>Push ce dossier sur GitHub</li>
-      <li>Va sur <b>vercel.com → New Project → Import</b></li>
-      <li>Framework : <b>Other</b>, pas de build, Output : <b>.</b></li>
-      <li>Deploy. C'est en ligne.</li>
-    </ol>
-    <button id="dl">⬇ Télécharger le JSON</button>
+  <section class="card" id="contact">
+    <h2>📩 Commander / Contact</h2>
+    <p class="muted">Réponse sous 24h. Dis-moi ta niche + le pack choisi.</p>
+    <div class="row">
+      <input id="cName" placeholder="Ton nom" />
+      <input id="cMail" placeholder="Ton email" />
+    </div>
+    <div class="row" style="margin-top:10px">
+      <input id="cMsg" placeholder="Ex : Immo à Lyon, pack Growth, 2 vidéos YouTube..." />
+      <button id="send">Envoyer ✉️</button>
+    </div>
+    <div class="row" style="margin-top:10px">
+      <a class="btn-ghost" id="wa" href="https://wa.me/33600000000?text=Salut%20!%20Je%20veux%20des%20clips%20(Data%20to%20Short)" target="_blank">💬 WhatsApp direct</a>
+      <button id="dl" class="btn-ghost">⬇ Télécharger le JSON</button>
+    </div>
+    <small class="muted">⚠️ Remplace le numéro WhatsApp dans index.html par le tien (cherche wa.me).</small>
   </section>
 </main>
 
-<footer>Projet 2 — Data + Vidéo • 100% statique, aucune clé requise</footer>
+<footer>ClipFlow — Data + Vidéo • Démo gratuite, service premium</footer>
 <script src="app.js"></script>
+<script>
+// 1) Remplace par tes vrais Payment Links Stripe (mode Live)
+const PAYMENT_LINKS = {
+  starter: "https://pay.stripe.com/REMPLACE_STARTER",
+  growth: "https://pay.stripe.com/REMPLACE_GROWTH",
+  scale: "https://pay.stripe.com/REMPLACE_SCALE"
+};
+// 2) Checkout dynamique via /api/checkout.js (si STRIPE_SECRET_KEY configuré sur Vercel),
+//    sinon fallback automatique vers les Payment Links ci-dessus.
+async function pay(plan){
+  try{
+    const r = await fetch('/api/checkout', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({plan})
+    });
+    if(!r.ok) throw new Error('no-backend');
+    const {url} = await r.json();
+    if(url){ location.href = url; return; }
+    throw new Error('no-url');
+  }catch(e){ location.href = PAYMENT_LINKS[plan]; }
+}
+document.querySelectorAll('[data-pay]').forEach(b=>b.addEventListener('click',()=>pay(b.dataset.pay)));
+document.querySelectorAll('[data-stripe]').forEach(a=>a.addEventListener('click',async (ev)=>{
+  //essaie d'abord le checkout dynamique, sinon laisse le href Payment Link
+  ev.preventDefault();
+  pay(a.dataset.stripe);
+}));
+document.querySelectorAll('[data-plan]').forEach(a=>a.addEventListener('click',()=>{
+  const m=document.getElementById('cMsg');
+  if(m) m.value='Je veux le pack '+a.dataset.plan+' — ma niche : ';
+}));
+document.getElementById('send').onclick=()=>{
+  const n=document.getElementById('cName').value||'';
+  const m=document.getElementById('cMail').value||'';
+  const t=document.getElementById('cMsg').value||'';
+  location.href=`mailto:contact@clipflow.fr?subject=Commande clips — ${encodeURIComponent(n)}&body=${encodeURIComponent(t+'\n\nEmail: '+m)}`;
+};
+</script>
 </body>
 </html>
