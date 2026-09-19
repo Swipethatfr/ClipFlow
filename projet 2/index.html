@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Data → Shorts — 99% Auto</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <h1>🎬 Data → Shorts <span>99% Auto</span></h1>
+  <p>Colle ta niche, génère 6 idées de clips prêtes pour TikTok / Reels / Shorts + fichier OpenShorts.</p>
+</header>
+
+<main>
+  <section class="card">
+    <label for="query">Ta niche / recherche</label>
+    <div class="row">
+      <input id="query" value="IA monétisation" placeholder="ex : immobilier, e-commerce, coaching..." />
+      <button id="go">Générer ⚡</button>
+    </div>
+    <div class="chips">
+      <button data-q="IA monétisation">IA</button>
+      <button data-q="e-commerce tendance">E-com</button>
+      <button data-q="immobilier">Immo</button>
+      <button data-q="coaching">Coaching</button>
+      <button data-q="formation en ligne">Formation</button>
+    </div>
+  </section>
+
+  <section class="card" id="stats" hidden>
+    <h2>📊 Analyse</h2>
+    <div id="statsBox" class="grid"></div>
+  </section>
+
+  <section id="results"></section>
+
+  <section class="card">
+    <h2>💰 Simulateur revenus</h2>
+    <div class="row">
+      <label>Clients <input id="nb" type="number" value="5" min="1" max="50"></label>
+      <label>Prix / mois € <input id="prix" type="number" value="400" min="50" step="50"></label>
+      <button id="calc">Calculer</button>
+    </div>
+    <p id="revenu" class="big"></p>
+    <small>Repères : audit SEO 800-2500€, pack 10 clips 300-800€/mois, pitch deck 1500-5000€, leads 0.5-2€/unité.</small>
+  </section>
+
+  <section class="card">
+    <h2>🚀 Déployer sur Vercel</h2>
+    <ol>
+      <li>Push ce dossier sur GitHub</li>
+      <li>Va sur <b>vercel.com → New Project → Import</b></li>
+      <li>Framework : <b>Other</b>, pas de build, Output : <b>.</b></li>
+      <li>Deploy. C'est en ligne.</li>
+    </ol>
+    <button id="dl">⬇ Télécharger le JSON</button>
+  </section>
+</main>
+
+<footer>Projet 2 — Data + Vidéo • 100% statique, aucune clé requise</footer>
+<script src="app.js"></script>
+</body>
+</html>
